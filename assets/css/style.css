@@ -1,0 +1,47 @@
+
+#headerimage{
+   float:right;
+   border: 2px solid black;
+   
+   background:black;
+   margin-top:10px;
+
+   color:white;
+  
+   
+}
+#header-image{
+    float:left;
+    border: 2px solid rgb(224, 222, 222);
+    margin-left:-15px;
+    border-radius:5px;
+   
+ }
+  h1{
+    font-size:60px;
+   line-height: 60px;
+   font-family: 'Asap',sans-serif;
+   text-align:center;
+   padding:40px;
+ }
+/* train header */
+#train-header
+{
+    border:2px solid;
+    margin-top:60px;
+    width:100%;
+
+}
+#displayheader{
+    
+    width:100%;
+    margin-top:10px;
+     
+   
+}
+#displaytrain{
+    font-family: "Asap",sans-serif;
+    font-size:20px;
+    font-display: bold;
+}
+

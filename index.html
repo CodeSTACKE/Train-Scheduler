@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <!-- jquery  -->
     <script src="https://code.jquery.com/jquery.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Bootstrap javascript -->
@@ -19,13 +20,84 @@
     <!-- Javascript link -->
     <script type="text/javascript" src="assets/firebase/trainapp.js"></script>
     <!-- Firebase References -->
-  <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <!-- /* Added the link from font.goole.com */ -->
+    <link href="https://fonts.googleapis.com/css?family=Asap:400,700&display=swap" rel="stylesheet">
     <title>Train Scheduler </title>
+
 </head>
 
 <body>
     <!-- Whole container starts here -->
+    <div class="container">
+        <nav class="container" id="headerimage">
+            <img src="assets/image/images (1).jpg" id="header-image" class="img-fluid" alt="Responsive image">
+            <h1 style="font-size: 45px">Train Management</h1>
+        </nav>
+    </div>
+    <!-- header  div -->
+
+
+    <div class="container">
+        <div class="panel panel-primary" id="displayheader">
+            <div class="panel-heading" id="displaytrain">Current trains</div>
+            <div class="panel-body">
+                <table class="table" style="font-size:15px">
+                    <thead>
+                        <tr>
+                            <th> Train Name </th>
+                            <th> Destination </th>
+                            <th> Train start </th>
+                            <th> Frequency(min) </th>
+                            <th> Next Arrival </th>
+                            <th> Minutes Away </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>985</td>
+                            <td>New jersey</td>
+                            <td>Chicago</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading" id="displaytrain">Add train</div>
+            <div class="panel-body">
+            <form>
+                    <div class="form-group">
+                      <label for="train-input" style="font-size:15px">Train name:</label>
+                      <input class="form-control" id="train-name" type="text">
+                    </div>
+                    <div class="form-group">
+                      <label for="dest-input" style="font-size:15px">Destination:</label>
+                      <input class="form-control" id="train-dest" type="text">
+                    </div>
+                    <div class="form-group ">
+                      <label for="train-time-input" style="font-size:15px">First Train Time(HH:mm - military time)</label>
+                      <input class="form-control" id="train-time" type="number">
+                    </div>
+                    <div class="form-group ">
+                      <label for="train-freq-input" style="font-size:15px">Frequency (min)</label>
+                      <input class="form-control" id="train-freq" type="number">
+                    </div>
+                    <button class="btn btn-primary" style="font-size:15px" id="add-train" type="submit">Submit</button>
+            </form>
+        </div>
+      
+        </div>
+
+
+
+    </div>
 
 </body>
+
 </html>
