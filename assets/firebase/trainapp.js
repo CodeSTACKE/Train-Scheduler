@@ -15,11 +15,12 @@ var firebaseConfig = {
    // Initial Values
    var trainname = "";
    var desti = "";
-   var trainstart = "";
+   var trainstart;
    var frequency = 0;
-   var nextarrival=0;
+   var trainarrival=0;
    var minutesaway="";
-   var traintime;
+   var trainAway;
+   
    // Capture Button Click
  $(document).on("click","#add-train", function(event) {
     event.preventDefault();
@@ -29,21 +30,20 @@ var firebaseConfig = {
     console.log(trainname);
     desti = $("#train-dest").val().trim();
     console.log(desti);
-    traintime = $("#train-time").val().trim();
-    console.log(traintime);
+    trainstart=moment($("#train-start").val(),"HH:mm").format("HH:mm");
+    console.log(trainstart);
    frequency = $("#train-freq").val().trim();
    console.log(frequency);
    
    database.ref().push({
     Trainname: trainname,
     destination: desti,
-    traintime: traintime,
+    traintime: trainstart,
     frequency: frequency,
-   
   });
   $("#train-name").val("");
   $("#train-dest").val("");
-  $("#train-time").val("");
+  $("#train-start").val("");
   $("#train-freq").val("");
 
   
@@ -52,15 +52,62 @@ var firebaseConfig = {
 database.ref().on("child_added", function(snapshot) {
     // storing the snapshot.val() in a variable for convenience
     var sv = snapshot.val();
+    //logging it into Console.
       console.log(sv.Trainname);
       console.log(sv.destination);
       console.log(sv.traintime);
       console.log(sv.frequency);
-      console.log(sv);
-      var tr= $("<tr>");
-      var td=$("td");
-      td.append(sv.Trainname,sv.destination,sv.traintime,sv.frequency);
-      tr.append(td);
-      $("#tbody").append(tr);
+      // populating the values from the database and string them in a variable.
+     var trainname=sv.Trainname;
+     var desti=sv.destination;
+     var traintime=sv.traintime;
+      var frequency=sv.frequency;
+      
+   
+console.log("starttime:"+traintime);
+var startTime = sv.traintime;
+var startMinutes = parseInt(startTime.split(":")[1])
+var startHours = parseInt(startTime.split(":")[0])
+console.log(startTime)
+console.log(startMinutes)
+console.log(startHours)
+var totalStartMinutes = startHours * 60 + startMinutes;
+console.log(totalStartMinutes)
+var roundTime =sv.frequency;
+
+var currentTime =moment().format('hh:mm A')
+var currentMinutes = parseInt(currentTime.split(":")[1])
+var currentHours = parseInt(currentTime.split(":")[0])
+console.log(currentTime)
+console.log(currentMinutes)
+console.log(currentHours)
+var totalCurrentMinutes = currentMinutes *60 +currentHours ;
+console.log(totalCurrentMinutes)
+
+var totalDifference = totalCurrentMinutes - totalStartMinutes;
+console.log("Total Minutes" + totalDifference)
+
+var trainAway = (roundTime - totalDifference%roundTime)
+console.log(trainAway + " minutes away")
+
+var arrivalTimeMinutes = totalCurrentMinutes + trainAway
+console.log(arrivalTimeMinutes)
+var arrivalMinutePlace = arrivalTimeMinutes % 60
+console.log(arrivalMinutePlace)
+var arrivalHourPlace = (arrivalTimeMinutes - arrivalMinutePlace)/60
+console.log(arrivalHourPlace)
+var trainArrival=arrivalHourPlace + ":" + arrivalMinutePlace;
+// var train=moment(trainArrival, 'hh:mm').format('hh:mm A');
+console.log(arrivalHourPlace + ":" + arrivalMinutePlace);
+// console.log(train);
+
+{/* <td>"+ traintime +"</td> */}
+  
+
+
+    $("table").append("<tr><td>" + trainname + "</td><td>" + desti +"</td><td>" +  frequency + "</td><td>" +trainArrival+ "</td><td>" + trainAway + "</td><tr>");
+
+
+    
 
 });
