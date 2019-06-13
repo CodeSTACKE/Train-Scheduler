@@ -17,13 +17,17 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Bootstrap javascript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- Javascript link -->
-    <script type="text/javascript" src="assets/firebase/trainapp.js"></script>
+    
     <!-- Firebase References -->
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <!-- Javascript link -->
+    <script type="text/javascript" src="assets/firebase/trainapp.js"></script>
     <!-- /* Added the link from font.goole.com */ -->
     <link href="https://fonts.googleapis.com/css?family=Asap:400,700&display=swap" rel="stylesheet">
+    <!-- Link to Moment.js should go here -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
     <title>Train Scheduler </title>
 
 </head>
@@ -54,7 +58,7 @@
                             <th> Minutes Away </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody">
                         <tr>
                             <td>985</td>
                             <td>New jersey</td>
@@ -76,8 +80,8 @@
                       <label for="train-input" style="font-size:15px">Train name:</label>
                       <input class="form-control" id="train-name" type="text">
                     </div>
-                    <div class="form-group">
-                      <label for="dest-input" style="font-size:15px">Destination:</label>
+                    <div class="form-group"style="font-size:15px">
+                      <label for="dest-input" >Destination:</label>
                       <input class="form-control" id="train-dest" type="text">
                     </div>
                     <div class="form-group ">
