@@ -14,7 +14,7 @@ Firebase for storage.
 
 ###### Deployed Link
 -------------------------
-https://jyotigithub1.github.io/Train-Scheduler/
+Click here for deployed Link [https://jyotigithub1.github.io/Train-Scheduler/]
 
 
 
